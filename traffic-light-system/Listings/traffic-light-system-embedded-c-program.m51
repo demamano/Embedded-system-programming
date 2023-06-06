@@ -1,0 +1,94 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    06/06/2023  19:36:51  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\traffic-light.obj TO .\Objects\traffic-light-system-embedded-c-program PRINT (.\Li
+>> stings\traffic-light-system-embedded-c-program.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\traffic-light.obj (TRAFFIC_LIGHT)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?SLCMP)
+
+
+LINK MAP OF MODULE:  .\Objects\traffic-light-system-embedded-c-program (TRAFFIC_LIGHT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008FH     UNIT         ?PR?MAIN?TRAFFIC_LIGHT
+            CODE    088FH     0016H     UNIT         ?C?LIB_CODE
+            CODE    08A5H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\traffic-light-system-embedded-c-program (TRAFFIC_LIGHT)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?TRAFFIC_LIGHT
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\traffic-light-system-embedded-c-program (TRAFFIC_LIGHT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TRAFFIC_LIGHT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  B:0090H.2       PUBLIC        green
+  B:0090H.1       PUBLIC        yellow
+  C:0800H         PUBLIC        main
+  B:0090H.0       PUBLIC        red
+  -------         PROC          MAIN
+  -------         DO            
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/06/2023  19:36:51  PAGE 2
+
+
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:0800H         LINE#         6
+  C:0800H         LINE#         8
+  C:0806H         LINE#         9
+  C:0806H         LINE#         10
+  C:0808H         LINE#         11
+  C:0821H         LINE#         12
+  C:083CH         LINE#         13
+  C:083EH         LINE#         14
+  C:0840H         LINE#         15
+  C:0850H         LINE#         16
+  C:0852H         LINE#         17
+  C:0854H         LINE#         18
+  C:086FH         LINE#         19
+  C:088AH         LINE#         20
+  C:088CH         LINE#         23
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TRAFFIC_LIGHT
+
+  -------         MODULE        ?C?SLCMP
+  C:088FH         PUBLIC        ?C?SLCMP
+  -------         ENDMOD        ?C?SLCMP
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 008FH BYTE ( 6%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=180
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
