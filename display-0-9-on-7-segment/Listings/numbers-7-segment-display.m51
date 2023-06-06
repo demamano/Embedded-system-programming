@@ -1,0 +1,97 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    06/06/2023  18:29:14  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\7-segment-display.obj TO .\Objects\numbers-7-segment-display PRINT (.\Listings\num
+>> bers-7-segment-display.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\7-segment-display.obj (7_SEGMENT_DISPLAY)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?COPY)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?SLCMP)
+
+
+LINK MAP OF MODULE:  .\Objects\numbers-7-segment-display (7_SEGMENT_DISPLAY)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     000BH     UNIT         _DATA_GROUP_
+            IDATA   0013H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     010CH     UNIT         ?C?LIB_CODE
+            CODE    090CH     0043H     UNIT         ?PR?MAIN?7_SEGMENT_DISPLAY
+            CODE    094FH     000CH     UNIT         ?C_C51STARTUP
+            CODE    095BH     000AH     UNIT         ?CO?7_SEGMENT_DISPLAY
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\numbers-7-segment-display (7_SEGMENT_DISPLAY)
+
+
+SEGMENT                              DATA_GROUP 
+  +--> CALLED SEGMENT              START    LENGTH
+--------------------------------------------------
+?C_C51STARTUP                      -----    -----
+  +--> ?PR?MAIN?7_SEGMENT_DISPLAY
+
+?PR?MAIN?7_SEGMENT_DISPLAY         0008H    000BH
+  +--> ?CO?7_SEGMENT_DISPLAY
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\numbers-7-segment-display (7_SEGMENT_DISPLAY)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        7_SEGMENT_DISPLAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/06/2023  18:29:14  PAGE 2
+
+
+  C:090CH         PUBLIC        main
+  C:095BH         SYMBOL        _?ix1000
+  -------         PROC          MAIN
+  -------         DO            
+  D:0008H         SYMBOL        seg
+  D:0012H         SYMBOL        x
+  D:0082H         SYMBOL        i
+  -------         ENDDO         
+  C:090CH         LINE#         2
+  C:090CH         LINE#         5
+  C:091FH         LINE#         8
+  C:0922H         LINE#         9
+  C:0922H         LINE#         10
+  C:0925H         LINE#         11
+  C:092DH         LINE#         12
+  C:0946H         LINE#         13
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        7_SEGMENT_DISPLAY
+
+  -------         MODULE        ?C?COPY
+  C:08D0H         PUBLIC        ?C?COPY
+  -------         ENDMOD        ?C?COPY
+
+  -------         MODULE        ?C?SLCMP
+  C:08F6H         PUBLIC        ?C?SLCMP
+  -------         ENDMOD        ?C?SLCMP
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 004DH BYTE ( 3%) *
+******************************************************************************
+
+Program Size: data=20.0 xdata=0 code=360
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
