@@ -1,0 +1,118 @@
+C51 COMPILER V9.60.7.0   VISIT_COUNTER                                                     06/06/2023 10:58:25 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE VISIT_COUNTER
+OBJECT MODULE PLACED IN .\Objects\visit-counter.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE visit-counter.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\List
+                    -ings\visit-counter.lst) TABS(2) OBJECT(.\Objects\visit-counter.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          sbit sen1=P1^0; //entry  
+   3          sbit sen2=P1^1; // exit
+   4          sbit rs=P1^2;
+   5          sbit rw=P1^3;
+   6          sbit en=P1^4;
+   7          void lcdcmd(unsigned char);
+   8          void lcddat(unsigned char);
+   9          void delay();
+  10          void lcddis(unsigned char *s, unsigned char r);
+  11          void lcdconv(unsigned char);
+  12          void main(){
+  13   1      unsigned char x,y;
+  14   1        lcdcmd(0x38);
+  15   1        delay();
+  16   1        lcdcmd(0x01);
+  17   1        delay();
+  18   1        lcdcmd(0x10);
+  19   1        delay();
+  20   1        lcdcmd(0x0c);
+  21   1        delay();
+  22   1        lcddis("Welcome",7);
+  23   1        lcdcmd(0xc0);
+  24   1        delay();
+  25   1        lcddis("Vistor Counter",15);
+  26   1        delay();
+  27   1        lcdcmd(0x01);
+  28   1          delay();
+  29   1        while(1){
+  30   2        if(sen1==0)
+  31   2        {
+  32   3          lcdcmd(0x80);
+  33   3          delay();
+  34   3          lcddis("ENTRY",6);
+  35   3          lcdcmd(0x87);
+  36   3          delay();
+  37   3          
+  38   3          x=x+1;
+  39   3          lcdconv(x);
+  40   3        }
+  41   2        if(sen2==0){
+  42   3          lcdcmd(0xc0);
+  43   3          lcddis("EXIT",5);
+  44   3          lcdcmd(0xc6);
+  45   3          delay();
+  46   3          y=y+1;
+  47   3          lcdconv(y);
+  48   3          delay();
+  49   3          }
+  50   2        }}
+  51            void lcdcmd(unsigned char val){
+  52   1          P2 = val;
+  53   1          rs=0;
+  54   1          rw=0;
+C51 COMPILER V9.60.7.0   VISIT_COUNTER                                                     06/06/2023 10:58:25 PAGE 2   
+
+  55   1          en=1;
+  56   1          delay();
+  57   1          en=0;
+  58   1          }
+  59            void lcddat(unsigned char dat){
+  60   1          P2=dat;
+  61   1          rs=1;
+  62   1          rw=0;
+  63   1          en=1;
+  64   1          delay();
+  65   1          en=0;
+  66   1          
+  67   1        }
+  68            void lcddis(unsigned char *s, char r){
+  69   1          unsigned char w;
+  70   1          for(w=0;w<r;w++){
+  71   2            lcddat(s[w]);
+  72   2            delay();
+  73   2          }
+  74   1        }
+  75          void lcdconv(unsigned char num ){
+  76   1        unsigned char p,n;
+  77   1        p=num/10;
+  78   1        n=num%10;
+  79   1        p=p+0x30;
+  80   1        n=n+0x30;
+  81   1        lcddat(p);
+  82   1        lcddat(n);
+  83   1        }
+  84          void delay(){
+  85   1      unsigned int k,l;
+  86   1        for(k=0;k<1000;k++);
+  87   1        for(l=0;l<1000;l++);
+  88   1        
+  89   1      }
+  90          
+  91          
+  92          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    298    ----
+   CONSTANT SIZE    =     34    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       8
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

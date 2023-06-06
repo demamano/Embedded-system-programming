@@ -1,0 +1,15 @@
+*.o
+*.elf
+*.hex
+build/
+bin/
+.project
+.cproject
+.vscode/
+.idea/
+doc/
+reports/
+test_output/
+config.ini
+secrets.ini
+private.key
