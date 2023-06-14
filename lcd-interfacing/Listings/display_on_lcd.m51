@@ -1,0 +1,169 @@
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    06/14/2023  17:16:43  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\led.obj TO .\Objects\display_on_lcd PRINT (.\Listings\display_on_lcd.m51)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\led.obj (LED)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?CLDOPTR)
+
+
+LINK MAP OF MODULE:  .\Objects\display_on_lcd (LED)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0005H     UNIT         _DATA_GROUP_
+            IDATA   000DH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0040H     UNIT         ?PR?MAIN?LED
+            CODE    0840H     0033H     UNIT         ?CO?LED
+            CODE    0873H     002FH     UNIT         ?PR?_LCD_STR?LED
+            CODE    08A2H     002DH     UNIT         ?C?LIB_CODE
+            CODE    08CFH     0026H     UNIT         ?PR?_DELY?LED
+            CODE    08F5H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0901H     000AH     UNIT         ?PR?_LCD_DATA?LED
+            CODE    090BH     000AH     UNIT         ?PR?_LCD_CMD?LED
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\display_on_lcd (LED)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?LED
+
+?PR?MAIN?LED                   -----    -----
+  +--> ?PR?_LCD_CMD?LED
+  +--> ?CO?LED
+  +--> ?PR?_LCD_STR?LED
+
+?PR?_LCD_CMD?LED               -----    -----
+  +--> ?PR?_DELY?LED
+
+?PR?_LCD_STR?LED               0008H    0005H
+  +--> ?PR?_LCD_DATA?LED
+
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/14/2023  17:16:43  PAGE 2
+
+
+?PR?_LCD_DATA?LED              -----    -----
+  +--> ?PR?_DELY?LED
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\display_on_lcd (LED)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  C:0800H         PUBLIC        main
+  C:08D5H         PUBLIC        _dely
+  C:0901H         PUBLIC        _lcd_data
+  C:090BH         PUBLIC        _lcd_cmd
+  B:00B0H.1       PUBLIC        en
+  B:00B0H.0       PUBLIC        rs
+  C:0873H         PUBLIC        _lcd_str
+  -------         PROC          MAIN
+  C:0800H         LINE#         10
+  C:0800H         LINE#         11
+  C:0800H         LINE#         12
+  C:0805H         LINE#         13
+  C:080AH         LINE#         14
+  C:080AH         LINE#         15
+  C:080AH         LINE#         16
+  C:080FH         LINE#         17
+  C:0818H         LINE#         18
+  C:081DH         LINE#         19
+  C:0826H         LINE#         20
+  C:082BH         LINE#         21
+  C:0830H         LINE#         22
+  C:0839H         LINE#         23
+  C:083EH         LINE#         24
+  -------         ENDPROC       MAIN
+  -------         PROC          _LCD_STR
+  D:0008H         SYMBOL        str
+  -------         DO            
+  D:000BH         SYMBOL        loop
+  -------         ENDDO         
+  C:0873H         LINE#         27
+  C:0879H         LINE#         28
+  C:0879H         LINE#         29
+  C:087EH         LINE#         30
+  C:0894H         LINE#         31
+  C:0894H         LINE#         32
+  C:0897H         LINE#         33
+  C:08A1H         LINE#         34
+  -------         ENDPROC       _LCD_STR
+  -------         PROC          _LCD_DATA
+  D:0007H         SYMBOL        ch
+  C:0901H         LINE#         35
+  C:0901H         LINE#         36
+  C:0901H         LINE#         37
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  06/14/2023  17:16:43  PAGE 3
+
+
+  C:0903H         LINE#         38
+  C:0905H         LINE#         39
+  C:0905H         LINE#         40
+  C:0908H         LINE#         41
+  C:090AH         LINE#         42
+  -------         ENDPROC       _LCD_DATA
+  -------         PROC          _LCD_CMD
+  D:0007H         SYMBOL        ch
+  C:090BH         LINE#         44
+  C:090BH         LINE#         45
+  C:090BH         LINE#         46
+  C:090DH         LINE#         47
+  C:090FH         LINE#         48
+  C:090FH         LINE#         49
+  C:0912H         LINE#         50
+  C:0914H         LINE#         51
+  -------         ENDPROC       _LCD_CMD
+  -------         PROC          L?0020
+  -------         ENDPROC       L?0020
+  -------         PROC          _DELY
+  D:0006H         SYMBOL        dly
+  -------         DO            
+  D:0004H         SYMBOL        loop
+  D:0002H         SYMBOL        delay_gen
+  -------         ENDDO         
+  C:08D5H         LINE#         52
+  C:08D5H         LINE#         53
+  C:08D5H         LINE#         54
+  C:08D8H         LINE#         55
+  C:08D8H         LINE#         56
+  C:08DFH         LINE#         57
+  C:08F4H         LINE#         58
+  -------         ENDPROC       _DELY
+  -------         ENDMOD        LED
+
+  -------         MODULE        ?C?CLDOPTR
+  C:08A2H         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00DCH BYTE (10%) *
+******************************************************************************
+
+Program Size: data=14.0 xdata=0 code=280
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

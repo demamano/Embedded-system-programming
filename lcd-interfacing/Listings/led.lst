@@ -1,0 +1,86 @@
+C51 COMPILER V9.60.7.0   LED                                                               06/14/2023 17:16:42 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE LED
+OBJECT MODULE PLACED IN .\Objects\led.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE led.c OPTIMIZE(8,SPEED) BROWSE INCDIR(..\..\Embedded-system-programming)
+                    - DEBUG OBJECTEXTEND PRINT(.\Listings\led.lst) TABS(2) OBJECT(.\Objects\led.obj)
+
+line level    source
+
+   1          #include <reg51.h>
+   2          #define LCD_dat P2
+   3          sbit rs =P3^0;
+   4          sbit en =P3^1;
+   5          
+   6          void dely(unsigned int dly);
+   7          void lcd_cmd(unsigned char ch);
+   8          void lcd_data(unsigned char ch);
+   9          void lcd_str(unsigned char *str);
+  10          void main(void)
+  11          {
+  12   1        lcd_cmd(0x38);
+  13   1        lcd_cmd(0x0C);
+  14   1        while(1) /* infinity loop */
+  15   1        {
+  16   2        lcd_cmd(0x80);
+  17   2        lcd_str("Welcome to AAU"); // '\0'
+  18   2        lcd_cmd(0xc0);
+  19   2        lcd_str("University"); // '\0'
+  20   2        lcd_cmd(0x01);
+  21   2        lcd_cmd(0x80);
+  22   2        lcd_str("computer science faculty"); // '\0'
+  23   2        lcd_cmd(0xc0);
+  24   2        }
+  25   1        
+  26   1      }
+  27          void lcd_str(unsigned char *str)
+  28          {
+  29   1        unsigned int loop =0;
+  30   1        for(loop =0; str[loop]!= '\0'; loop++)
+  31   1        {
+  32   2          lcd_data(str[loop]);
+  33   2        }
+  34   1      }
+  35          void lcd_data(unsigned char ch)
+  36          {
+  37   1        LCD_dat = ch;
+  38   1        rs = 1;  // data
+  39   1        en = 1;
+  40   1        dely(10);
+  41   1        en = 0;
+  42   1      }
+  43          
+  44          void lcd_cmd(unsigned char ch)
+  45          {
+  46   1        LCD_dat = ch;
+  47   1        rs = 0;  // cmd
+  48   1        en = 1;
+  49   1        dely(10);
+  50   1        en = 0;
+  51   1      }
+  52          void dely(unsigned int dly)
+  53          {
+  54   1        unsigned int loop =0;
+C51 COMPILER V9.60.7.0   LED                                                               06/14/2023 17:16:42 PAGE 2   
+
+  55   1        unsigned int delay_gen =0;
+  56   1        for(loop =0; loop < dly; loop++)
+  57   1        for(delay_gen =0; delay_gen < 1000; delay_gen++); /* delay */
+  58   1      }
+  59          
+  60          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    169    ----
+   CONSTANT SIZE    =     51    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

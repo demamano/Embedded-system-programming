@@ -1,3 +1,0 @@
-".\Objects\traffic-light.obj" 
-TO ".\Objects\traffic-light-system-embedded-c-program" 
-PRINT(".\Listings\traffic-light-system-embedded-c-program.m51")

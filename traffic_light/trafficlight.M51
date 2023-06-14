@@ -1,0 +1,91 @@
+BL51 BANKED LINKER/LOCATER V5.02                                                        05/30/2023  22:26:55  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V5.02, INVOKED BY:
+C:\KEIL\C51\BIN\BL51.EXE trafficlight.obj TO trafficlight
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  trafficlight.obj (TRAFFICLIGHT)
+  C:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  C:\KEIL\C51\LIB\C51S.LIB (?C?SLCMP)
+
+
+LINK MAP OF MODULE:  trafficlight (TRAFFICLIGHT)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0071H     UNIT         ?PR?MAIN?TRAFFICLIGHT
+            CODE    0871H     0016H     UNIT         ?C?LIB_CODE
+            CODE    0887H     000CH     UNIT         ?C_C51STARTUP
+
+
+
+OVERLAY MAP OF MODULE:   trafficlight (TRAFFICLIGHT)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?TRAFFICLIGHT
+
+
+
+SYMBOL TABLE OF MODULE:  trafficlight (TRAFFICLIGHT)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        TRAFFICLIGHT
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  B:0090H.2       PUBLIC        green
+  B:0090H.1       PUBLIC        yellow
+  C:0800H         PUBLIC        main
+  B:0090H.0       PUBLIC        red
+  -------         PROC          MAIN
+  -------         DO            
+  D:0082H         SYMBOL        i
+BL51 BANKED LINKER/LOCATER V5.02                                                      05/30/2023  22:26:55  PAGE 2
+
+
+  -------         ENDDO         
+  C:0800H         LINE#         7
+  C:0800H         LINE#         9
+  C:0806H         LINE#         11
+  C:0806H         LINE#         12
+  C:0808H         LINE#         14
+  C:0821H         LINE#         16
+  C:0823H         LINE#         17
+  C:0825H         LINE#         19
+  C:0835H         LINE#         21
+  C:0837H         LINE#         22
+  C:0839H         LINE#         24
+  C:0854H         LINE#         26
+  C:0856H         LINE#         28
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TRAFFICLIGHT
+
+  -------         MODULE        ?C?SLCMP
+  C:0871H         PUBLIC        ?C?SLCMP
+  -------         ENDMOD        ?C?SLCMP
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0072H BYTE ( 5%) *
+******************************************************************************
+
+Program Size: data=9.0 xdata=0 code=150
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

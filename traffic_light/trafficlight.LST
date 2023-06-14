@@ -1,0 +1,53 @@
+C51 COMPILER V7.02a   TRAFFICLIGHT                                                         05/30/2023 22:26:55 PAGE 1   
+
+
+C51 COMPILER V7.02a, COMPILATION OF MODULE TRAFFICLIGHT
+OBJECT MODULE PLACED IN trafficlight.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE trafficlight.c BROWSE DEBUG OBJECTEXTEND
+
+stmt level    source
+
+   1          #include <reg51.h>
+   2          
+   3          sbit red = P1^0;
+   4          sbit yellow = P1^1;
+   5          sbit green = P1^2;
+   6          
+   7          void main() {
+   8   1          unsigned int i;
+   9   1          red = yellow = green = 0;
+  10   1      
+  11   1          while (1) {
+  12   2              red = 1;
+  13   2      
+  14   2              for (i = 0; i < 50000; i++);  // Faster delay
+  15   2      
+  16   2              red = 0;
+  17   2              yellow = 1;
+  18   2      
+  19   2              for (i = 0; i < 25000; i++);  // Faster delay
+  20   2      
+  21   2              yellow = 0;
+  22   2              green = 1;
+  23   2      
+  24   2              for (i = 0; i < 50000; i++);  // Faster delay
+  25   2      
+  26   2              green = 0;
+  27   2      
+  28   2              for (i = 0; i < 50000; i++);  // Faster delay
+  29   2          }
+  30   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    113    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
